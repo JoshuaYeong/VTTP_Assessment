@@ -1,0 +1,63 @@
+<div>
+    <form [formGroup]="form" (ngSubmit)="processForm()">
+        <table>
+            <tr>
+                <td>
+                    Name:
+                </td>
+                <td>
+                    <input type="text" name="name" id="name" formControlName="name" size="30">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Email:
+                </td>
+                <td>
+                    <input type="text" name="email" id="email" formControlName="email" size="30">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Phone:
+                </td>
+                <td>
+                    <input type="text" name="phone" id="phone" formControlName="phone" size="30">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Title:
+                </td>
+                <td>
+                    <input type="title" name="title" id="title" formControlName="title" size="30">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  Description:
+                </td>
+                <td>
+                    <textarea cols="30" rows="4" name="description" id="description" formControlName="description"></textarea>
+                </td>
+            </tr>
+            <tr>
+              <td>
+                  Image:
+              </td>
+              <td>
+                <input type="file" name="file" id="file" formControlName="file" #toUpload>
+              </td>
+          </tr>
+            <tr>
+              <td>
+              </td>
+              <td>
+                  <button type="button" (click)="clear()">Clear</button>
+                  <button type="submit">Post</button>
+              </td>
+            </tr>
+
+        </table>
+    </form>
+</div>
