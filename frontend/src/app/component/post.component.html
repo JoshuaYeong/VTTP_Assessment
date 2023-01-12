@@ -1,1 +1,37 @@
 <p>post works!</p>
+
+<div>
+  {{ newPost }}
+</div>
+
+<div>
+  {{ newPost | json }}
+</div>
+
+
+<!-- <div class="margin" *ngIf="postResponses.length <= 0">
+  <span>
+      <h3>No Post</h3>
+  </span>
+</div>
+
+<div *ngIf="postResponses.length > 0">
+  <div *ngFor="let p of postResponses">
+      <table>
+          <tr>
+              <h4>Posting Id: {{ p.postingId }}</h4>
+          </tr>
+          <tr>
+              {{ p.postingDate | date:'fullDate' }}
+          </tr>
+          <tr>
+            <td>
+              <button type="button" [routerLink]="[ '/' ]">Cancel</button>
+            </td>
+            <td>
+              <button type="button">Confirm</button>
+            </td>
+          </tr>
+      </table>
+  </div>
+</div> -->

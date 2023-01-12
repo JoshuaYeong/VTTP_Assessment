@@ -12,7 +12,7 @@ import { PostService } from './post.service';
 
 const appPath: Routes = [
   { path: '', component: MainComponent },
-  { path: 'api/posting', component: PostComponent },
+  { path: 'api/posting/result', component: PostComponent },
   { path: 'api/posting/:postingId', component: ConfirmationComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ]

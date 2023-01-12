@@ -12,7 +12,7 @@ export interface PostResponse {
   postingDate: string,
   name: string,
   email: string,
-  phone?: string,
+  phone: string,
   title: string,
   description: string,
   image: string

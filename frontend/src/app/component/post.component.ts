@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subject, Subscription } from 'rxjs';
+import { PostResponse } from '../models';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-post',
@@ -7,9 +11,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  constructor() { }
+  sub$!: Subscription
+  newPost!: any
+
+  imageURL: string = ""
+  postId: string = ""
+  postDate: string = ""
+  name: string = ""
+  // email: string = ""
+  // phone: string = ""
+  // title: string = ""
+  // description: string = ""
+
+  constructor(private activatedRoute: ActivatedRoute, private postSvc: PostService) { }
 
   ngOnInit(): void {
+    this.postSvc.share$.subscribe(
+      res => {
+        console.log(res)
+        this.newPost = res
+        console.log(':::newPost:',this.newPost)
+      }
+    )
   }
 
 }

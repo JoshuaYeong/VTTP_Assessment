@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Post } from '../models';
+import { Post, PostResponse } from '../models';
 import { PostService } from '../post.service';
 
 @Component({
@@ -16,6 +16,8 @@ export class MainComponent implements OnInit {
 
   form!: FormGroup
 
+  newPost!: any
+
   constructor(private fb:FormBuilder, private router: Router, private postSvc: PostService) { }
 
   ngOnInit(): void {
@@ -29,7 +31,7 @@ export class MainComponent implements OnInit {
 
       name: this.fb.control<string>('',),
       email: this.fb.control<string>('',),
-      phone: this.fb.control<string>('""'),
+      phone: this.fb.control<string>(''),
       title: this.fb.control<string>(''),
       description: this.fb.control<string>(''),
       file: this.fb.control<any>(''),
@@ -45,8 +47,11 @@ export class MainComponent implements OnInit {
     this.postSvc.createPost(values, myFile)
       .then(result => {
         console.log(":::::RESULT: ", result)
+        this.router.navigate(['api/posting/result'])
+        this.postSvc.shareData(result)
+        this.newPost = result
       }).catch(error => {
-        console.error(":::::ERROR: ", error)
+        console.error(":::::Main Comp: ", error)
       })
   }
 
